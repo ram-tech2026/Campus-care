@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Portal Login</title>
+    <link rel="stylesheet" href="css/login-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-nav">
+                <button class="nav-btn active" onclick="showForm('login')">Student Login</button>
+                <button class="nav-btn" onclick="showForm('adminLogin')">Admin Login</button>
+            </div>
+
+            <!-- Student Login Form -->
+            <form id="loginForm" class="active">
+                <h2>Student Login</h2>
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit">Login</button>
+                <div class="admin-register-link">
+                    Don't have an account? <a href="#" onclick="showForm('register')">Register here</a>
+                </div>
+            </form>
+
+            <!-- Student Registration Form -->
+            <form id="registerForm">
+                <h2>Student Registration</h2>
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regStudentId">Student ID</label>
+                    <input type="text" id="regStudentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" required>
+                </div>
+                <div class="password-requirements">
+                    <p>Password must contain:</p>
+                    <ul>
+                        <li>At least 8 characters</li>
+                        <li>One uppercase letter</li>
+                        <li>One lowercase letter</li>
+                        <li>One number</li>
+                    </ul>
+                </div>
+                <button type="submit">Register</button>
+                <div class="admin-login-link">
+                    Already have an account? <a href="#" onclick="showForm('login')">Login here</a>
+                </div>
+            </form>
+
+            <!-- Admin Login Form -->
+            <form id="adminLoginForm">
+                <h2>Admin Login</h2>
+                <div class="form-group">
+                    <label for="adminEmail">Admin Email</label>
+                    <input type="email" id="adminEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit">Login</button>
+                <div class="admin-register-link">
+                    Don't have an account? <a href="#" onclick="showForm('adminRegister')">Register here</a>
+                </div>
+            </form>
+
+            <!-- Admin Registration Form -->
+            <form id="adminRegisterForm">
+                <h2>Admin Registration</h2>
+                <div class="form-group">
+                    <label for="adminRegName">Full Name</label>
+                    <input type="text" id="adminRegName" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminRegEmail">Admin Email</label>
+                    <input type="email" id="adminRegEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminRegPassword">Password</label>
+                    <input type="password" id="adminRegPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminRegConfirmPassword">Confirm Password</label>
+                    <input type="password" id="adminRegConfirmPassword" required>
+                </div>
+                <div class="password-requirements">
+                    <p>Password must contain:</p>
+                    <ul>
+                        <li>At least 5 characters</li>
+                        <li>One uppercase letter</li>
+                        <li>One lowercase letter</li>
+                        <li>One number</li>
+                    </ul>
+                </div>
+                <button type="submit">Register</button>
+                <div class="admin-login-link">
+                    Already have an account? <a href="#" onclick="showForm('adminLogin')">Login here</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="js/login-script.js"></script>
+</body>
+</html>

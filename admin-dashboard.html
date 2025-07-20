@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<header>
+    <h1>ADMIN Dashboard</h1>
+    <p>Welcome, <span id="studentName">admin</span></p>
+    <button onclick="logout()" class="logout-btn" aria-label="Logout" title="Logout">Logout</button>
+</header>
+<html lang="en">>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div id="css-test" style="display: none;">CSS Loaded</div>
+    <div class="dashboard">
+        <div class="sidebar">
+            <h3 style="color: white; padding: 10px;">Admin Menu</h3>
+            <button onclick="showAdminSection('dashboard')" class="active" aria-label="Dashboard" title="Dashboard">Dashboard</button>
+            <button onclick="showAdminSection('complaints')" aria-label="Complaints" title="Complaints">Complaints</button>
+            <button onclick="showAdminSection('suggestions')" aria-label="Suggestions" title="Suggestions">Suggestions</button>
+            <button onclick="showAdminSection('users')" aria-label="User Management" title="User Management">User Management</button>
+            <button onclick="adminLogout()" aria-label="Logout" title="Logout">Logout</button>
+        </div>
+        
+        <div class="main-content">
+            <div style="text-align: right; margin: 10px;">
+                <button onclick="console.log('Current Admin:', JSON.parse(localStorage.getItem('currentAdmin'))); 
+                                console.log('localStorage:', JSON.stringify(localStorage, null, 2)); 
+                                alert('Check browser console for debug info')" 
+                        style="padding: 5px 10px; background: #f0f0f0; border: 1px solid #ccc;">
+                    Debug Info
+                </button>
+            </div>
+            
+            <section id="adminDashboard" class="active">
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Complaints</h3>
+                        <p id="totalComplaints">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Complaints</h3>
+                        <p id="pendingComplaints">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Resolved Complaints</h3>
+                        <p id="resolvedComplaints">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Suggestions</h3>
+                        <p id="totalSuggestions">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="adminComplaints">
+                <h2>All Complaints</h2>
+                <div class="filter-container">
+                    <select id="complaintFilter" onchange="filterComplaints()" aria-label="Filter complaints by status">
+                        <option value="all">All Complaints</option>
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+                </div>
+                <div id="allComplaintsList" class="complaints-list"></div>
+            </section>
+
+            <section id="adminSuggestions">
+                <h2>Student Suggestions</h2>
+                <div id="allSuggestionsList" class="suggestions-list"></div>
+            </section>
+
+            <section id="adminUsers">
+                <h2>Manage Users</h2>
+                <div class="search-container">
+                    <input type="text" id="userSearch" placeholder="Search users..." oninput="searchUsers()">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Student ID</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersList"></tbody>
+                </table>
+            </section>
+
+            <section id="adminSettings">
+                <h2>Settings</h2>
+                <form id="adminSettingsForm">
+                    <div class="form-group">
+                        <label for="adminEmailSetting">Email</label>
+                        <input type="email" id="adminEmailSetting" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPasswordSetting">New Password</label>
+                        <input type="password" id="adminPasswordSetting">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPasswordConfirm">Confirm Password</label>
+                        <input type="password" id="adminPasswordConfirm">
+                    </div>
+                    <button type="submit">Save Settings</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <script src="js/admin-script.js"></script>
+</body>
+</html>
